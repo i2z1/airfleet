@@ -1,0 +1,12 @@
+Package: aiRfleet
+Type: Package
+Title: Fleet device management API wrapper for R
+Version: 0.1.0
+Author: Ivan Z
+Maintainer: i2z1<i2z1@ddslab.ru>
+Description: Fleet device management API wrapper for R.
+    FleetDM (https://fleetdm.com/) is a centralized MDM open-source solution for gathering hosts data via osquery and presenting it in normalized table view.
+License: AGPL
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
