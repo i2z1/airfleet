@@ -45,6 +45,17 @@ make_flt_req <- function(endpoint, flt_con, ...){
 #'
 #' @return df
 #' @export
+#' @import dplyr
 get_hosts <- function(flt_con){
   res <- make_flt_req("/api/v1/fleet/hosts", flt_con)
+
+  hosts_df <- res$hosts |>
+    lapply(unlist) |>
+    do.call(rbind, args = _) |>
+    as.data.frame() |>
+    mutate(across(ends_with("ed_at"), function(x) as.POSIXct(x, tz = "UTC", format = "%Y-%m-%dT%H:%M:%SZ"))) |>
+    mutate(across(c("memory", "uptime", ends_with("_cores"),
+                    contains(c("disk_space", "interval", "tls", "count"))), as.numeric))
+
+  return(hosts_df)
 }
