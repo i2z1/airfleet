@@ -1,6 +1,6 @@
-fltcon <- flt_connection(host = Sys.getenv("FLEET_HOST"),
+flt_con <- flt_connection(host = Sys.getenv("FLEET_HOST"),
                apitoken = Sys.getenv("FLEET_TOKEN"))
 
-test_that("hosts works", {
-  expect_equal(get_hosts(fltcon) |> ncol(), 49)
+test_that("get Fleet hosts works", {
+  expect_equal(get_hosts(flt_con) |> ncol(), 51)
 })
