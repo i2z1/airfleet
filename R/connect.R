@@ -39,7 +39,7 @@ make_flt_req <- function(endpoint, flt_con, ...){
 
 }
 
-#' Get hosts
+#' Get Fleet's registered hosts
 #'
 #' @param flt_con connection object
 #'
