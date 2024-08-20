@@ -2,7 +2,7 @@
 % Please edit documentation in R/connect.R
 \name{get_hosts}
 \alias{get_hosts}
-\title{Get hosts}
+\title{Get Fleet's registered hosts}
 \usage{
 get_hosts(flt_con)
 }
@@ -13,5 +13,5 @@ get_hosts(flt_con)
 df
 }
 \description{
-Get hosts
+Get Fleet's registered hosts
 }
