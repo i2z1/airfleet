@@ -17,19 +17,30 @@ flt_connection <- function(host = "127.0.0.1",
 #' Generate request to API endpoint
 #'
 #' @param endpoint string, API path with params
+#' @param rtype request type
+#' @param req_params list of request params
 #' @param flt_con connection object via flt_connection()
-#' @param ...
 #'
 #' @return list with deJSONed object
-#' @export
 #' @import httr2
-make_flt_req <- function(endpoint, flt_con, ...){
+make_flt_req <- function(endpoint, flt_con, rtype="GET", req_params = list()){
   flt_url <- paste0("https://", flt_con$host, ":", flt_con$port)
-  endpoint_params <- paste0(endpoint, ...)
 
-  ans <- httr2::request(flt_url) |>
-    httr2::req_url_path_append(endpoint_params) |>
-    httr2::req_auth_bearer_token(flt_con$token) |>
+  req <- httr2::request(flt_url) |>
+    httr2::req_method(rtype) |>
+    httr2::req_url_path_append(endpoint) |>
+    httr2::req_auth_bearer_token(flt_con$token)
+
+  if(rtype=="GET"){
+    req <- req |>
+      httr2::req_url_query(!!!req_params)
+  } else if(rtype=="POST") {
+    req <- req |>
+      httr2::req_body_json(req_params)
+   }
+
+  ans <- req |>
+    #httr2::req_dry_run()
     httr2::req_perform()
 
   ans_list <- ans |>
