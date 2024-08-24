@@ -4,12 +4,12 @@
 \alias{query_list}
 \title{List queries}
 \usage{
-query_list(flt_con, ...)
+query_list(flt_con, req_params = list())
 }
 \arguments{
 \item{flt_con}{connection object via flt_connection()}
 
-\item{...}{}
+\item{req_params}{opt, if provided specifies extra params, i.e. req_params = list(query = "darwin", order_direction = "desc")}
 }
 \value{
 df
