@@ -2,7 +2,7 @@
 
 export(flt_connection)
 export(get_hosts)
-export(make_flt_req)
+export(query_delete)
 export(query_list)
 import(dplyr)
 import(httr2)
