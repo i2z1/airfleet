@@ -58,7 +58,7 @@ hexSticker::sticker(pic, package="airfleet",
 ```
 
 
-# aiRfleet <img src="man/figures/hex.png" width="140px" height="140px" align="right" style="padding-left:10px;" />
+# aiRfleet <img src="man/figures/hex.png" width="140px" height="160px" align="right" style="padding-left:10px;" />
 
 <!-- badges: start -->
 <!-- badges: end -->

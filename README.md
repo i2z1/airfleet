@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# aiRfleet <img src="man/figures/hex.png" width="140px" height="140px" align="right" style="padding-left:10px;" />
+# aiRfleet <img src="man/figures/hex.png" width="140px" height="160px" align="right" style="padding-left:10px;" />
 
 <!-- badges: start -->
 <!-- badges: end -->
