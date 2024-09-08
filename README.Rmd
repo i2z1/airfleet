@@ -13,7 +13,52 @@ knitr::opts_chunk$set(
 )
 ```
 
-# aiRfleet
+```{r generate_hex, include=FALSE, fig.path="man/figures/hex-"}
+library(hexSticker)
+library(ggplot2)
+library(ggforce)
+
+up_line <- function(x,b,r){
+  y <- x + b
+    df <- data.frame(x = x,
+                   y = y,
+                   r = r)
+  return(df)
+}
+
+df <- data.frame(x = c(1,3,5),
+                 y = c(1,3,5),
+                 r = c(0.75,0.75,0.75))
+df_up <- up_line(x = c(1.3,3.3), b = 2, r = 0.35)
+df_down <- up_line(x = c(3,5), b = -1.8, r = 0.35)
+
+df_all <- rbind(df, df_up, df_down)
+                    
+
+p <- ggplot(df_all, aes(x0 = x, y0 = y, r =r)) +
+  geom_circle(color = "red", fill = "darkred") +
+  ggplot2::theme_void() +
+  scale_size(range = c(1, -1)) +
+  coord_fixed()
+
+pic <- p + theme_void() + theme_transparent()
+
+hexSticker::sticker(pic, package="airfleet", 
+                    p_size=22,
+                    p_y=1.55,
+                    s_x=1,
+                    s_y=.85,
+                    s_width=1.7,
+                    s_height=1,
+                    h_fill = "#000000",
+                    p_color = "#0d8b9f",
+                    h_color = "#e13ed3", #border
+                    p_family = "teko",
+                    filename="man/figures/hex.png")
+```
+
+
+# aiRfleet <img src="man/figures/hex.png" width="140px" height="140px" align="right" style="padding-left:10px;" />
 
 <!-- badges: start -->
 <!-- badges: end -->
