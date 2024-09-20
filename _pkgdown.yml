@@ -1,3 +1,5 @@
+url: https://i2z1.github.io/airfleet/
+
 template:
   bootstrap: 5
-  theme: vapor
+  light-switch: true
